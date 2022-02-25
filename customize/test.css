@@ -1,0 +1,8 @@
+.bigHeader {
+  display: none;
+}
+
+.landing-item {
+  border: 3px solid black;
+  page-break-inside: avoid;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@page-to-pdf/cli",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "src/",
+  "bin": {
+    "page-to-pdf": "src/index.js"
+  }
+}

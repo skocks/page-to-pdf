@@ -1,0 +1,67 @@
+{
+  "root": "packages/cli",
+  "sourceRoot": "packages/cli/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cli",
+        "main": "packages/cli/src/index.ts",
+        "tsConfig": "packages/cli/tsconfig.lib.json",
+        "assets": ["packages/cli/*.md"]
+      }
+    },
+    "watch": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cli",
+        "main": "packages/cli/src/index.ts",
+        "tsConfig": "packages/cli/tsconfig.lib.json",
+        "assets": ["packages/cli/*.md"],
+        "watch": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cli/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cli"],
+      "options": {
+        "jestConfig": "packages/cli/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "publish-local": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "yarn link"
+      }
+    },
+
+    "unpublish-local": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "yarn unlink"
+      }
+    },
+
+    "run": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "node dist/packages/cli/src/index.js"
+      }
+    }
+  },
+  "tags": []
+}
